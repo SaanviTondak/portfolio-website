@@ -1,0 +1,222 @@
+/* =========================================================================
+   GLOBAL STYLES
+   Reset, base typography, shared utilities, and reduced-motion handling.
+   ========================================================================= */
+
+@import './theme.css';
+
+/* Geist font (installed via the `geist` package; imported in main.jsx) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis handles smooth scroll; keep native off */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Subtle vignette so the near-black never looks flat */
+  background-image: radial-gradient(
+    120% 120% at 50% -10%,
+    rgba(255, 143, 206, 0.06),
+    transparent 45%
+  );
+}
+
+/* Lenis smooth-scroll required styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: var(--accent-bright);
+  color: #17070f;
+}
+
+/* Thin pink scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 143, 206, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* -------------------------------------------------------------------------
+   Layout helpers
+   ------------------------------------------------------------------------- */
+.section {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(6rem, 14vh, 12rem);
+  z-index: var(--z-content);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Uppercase eyebrow / small pink label */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Big uppercase display heading */
+.display-heading {
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Generic reveal target — GSAP animates these in; this is the pre-animation
+   resting state. If JS/motion is off, a fallback below reveals them. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+}
+
+/* -------------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn--filled {
+  background: var(--accent);
+  color: #1a0912;
+  box-shadow: 0 10px 40px -12px var(--accent-glow);
+}
+.btn--filled:hover {
+  background: var(--accent-bright);
+  box-shadow: 0 16px 50px -10px var(--accent-glow);
+}
+.btn--outline {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+.btn--outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* -------------------------------------------------------------------------
+   Accessibility: respect reduced-motion.
+   We also toggle a `.reduced-motion` class on <html> from JS as a belt-and-
+   braces measure so GSAP-created inline styles are neutralized.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+html.reduced-motion .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Safety net: if for any reason the reveal animation never runs (e.g. JS
+   error), reveal content after a short delay so nothing stays invisible. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-fallback 0.01s linear 4s forwards;
+  }
+}
+@keyframes reveal-fallback {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

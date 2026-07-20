@@ -1,0 +1,77 @@
+.glow-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* behind content + canvas */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+/* Top-left */
+.glow-blob--1 {
+  width: 46vw;
+  height: 46vw;
+  top: -14vw;
+  left: -12vw;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 62%);
+  opacity: 0.4;
+  animation: drift-1 22s ease-in-out infinite alternate;
+}
+
+/* Right / mid */
+.glow-blob--2 {
+  width: 40vw;
+  height: 40vw;
+  top: 32%;
+  right: -14vw;
+  background: radial-gradient(circle, var(--accent-bright) 0%, transparent 60%);
+  opacity: 0.3;
+  animation: drift-2 28s ease-in-out infinite alternate;
+}
+
+/* Bottom-left */
+.glow-blob--3 {
+  width: 38vw;
+  height: 38vw;
+  bottom: -16vw;
+  left: 20%;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 62%);
+  opacity: 0.28;
+  animation: drift-3 25s ease-in-out infinite alternate;
+}
+
+@keyframes drift-1 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 5vw, 0) scale(1.12);
+  }
+}
+@keyframes drift-2 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(-7vw, -4vw, 0) scale(0.95);
+  }
+}
+@keyframes drift-3 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4vw, -6vw, 0) scale(1.1);
+  }
+}
+
+.glow-blobs--static .glow-blob {
+  animation: none;
+}

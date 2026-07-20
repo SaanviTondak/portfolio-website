@@ -1,0 +1,132 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+
+/* ---- 3D avatar canvas ---- */
+.hero__avatar {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* let clicks pass through to overlays */
+}
+.avatar-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---- Stacked translucent role text (depth layer) ---- */
+.hero__roles {
+  position: absolute;
+  right: clamp(-2rem, -2vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.9;
+  pointer-events: none;
+}
+.hero__role {
+  font-size: clamp(2.5rem, 9vw, 9rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(234, 229, 236, 0.14);
+  opacity: 0.9;
+}
+.hero__role:nth-child(2) {
+  color: rgba(255, 143, 206, 0.08);
+  -webkit-text-stroke: 1px rgba(255, 143, 206, 0.22);
+}
+
+/* ---- Left overlay text ---- */
+.hero__overlay {
+  position: relative;
+  z-index: 5;
+}
+.hero__hello {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.hero__name {
+  font-size: var(--fs-display);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.hero__name span {
+  display: block;
+}
+.hero__sub {
+  margin-top: 1.25rem;
+  max-width: 32ch;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+}
+
+/* ---- Scroll cue ---- */
+.hero__scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(var(--accent), transparent);
+  animation: scroll-pulse 2s var(--ease-in-out) infinite;
+}
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+    transform-origin: top;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero__roles {
+    top: auto;
+    bottom: 12%;
+    transform: none;
+    opacity: 0.5;
+  }
+  .hero__scroll-cue {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-line {
+    animation: none;
+  }
+}

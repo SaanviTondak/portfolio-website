@@ -1,0 +1,43 @@
+.social-rail {
+  position: fixed;
+  left: clamp(0.75rem, 2vw, 1.75rem);
+  bottom: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.social-rail__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.social-rail__link {
+  color: var(--text-muted);
+  display: inline-grid;
+  place-items: center;
+  transition: color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    filter var(--dur-fast) var(--ease-out);
+}
+.social-rail__link:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+/* Decorative vertical line beneath the icons */
+.social-rail__line {
+  width: 1px;
+  height: 90px;
+  background: linear-gradient(var(--border-strong), transparent);
+}
+
+@media (max-width: 900px) {
+  .social-rail {
+    display: none;
+  }
+}

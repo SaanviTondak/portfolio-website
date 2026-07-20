@@ -1,0 +1,60 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  visibility: hidden; /* GSAP flips autoAlpha on */
+  overflow: hidden;
+}
+
+/* Lock scroll while intro plays */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.intro__content {
+  text-align: center;
+  padding-inline: 1.5rem;
+}
+
+.intro__mono {
+  display: inline-block;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.intro__name {
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  line-height: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.intro__letter {
+  display: inline-block;
+  white-space: pre;
+}
+
+/* Thin pink progress bar under the name */
+.intro__bar {
+  display: block;
+  width: min(280px, 60vw);
+  height: 2px;
+  margin: 1.5rem auto 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
