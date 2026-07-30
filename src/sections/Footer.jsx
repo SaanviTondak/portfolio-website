@@ -22,9 +22,6 @@ export default function Footer({ reducedMotion = false }) {
             Have an idea? <span className="accent">Let&apos;s talk.</span>
           </h2>
           <div className="footer__buttons reveal">
-            <a className="btn btn--outline" href="#work">
-              Play With Me →
-            </a>
             <a className="btn btn--filled" href={`mailto:${profile.email}`}>
               Hire Me →
             </a>

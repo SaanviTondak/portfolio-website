@@ -63,8 +63,8 @@ export default function About({ reducedMotion = false }) {
             {timeline.map((item, i) => (
               <li className="timeline__row reveal" key={i}>
                 <div className="timeline__role">
-                  <h3>{item.role}</h3>
-                  <p className="timeline__sub text-muted">{item.sub}</p>
+                  <h3 className="timeline__title">{item.role}</h3>
+                  <p className="timeline__org">{item.sub}</p>
                 </div>
                 <div className="timeline__year" aria-hidden="true">
                   {item.year}

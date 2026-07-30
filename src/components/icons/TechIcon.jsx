@@ -65,6 +65,84 @@ const glyphs = {
   git: (
     <path d="M22.5 10.9 13.1 1.5a1.6 1.6 0 0 0-2.3 0L8.9 3.4l2.4 2.4c.6-.2 1.3 0 1.7.4.4.4.6 1.1.4 1.7l2.3 2.3c.6-.2 1.3 0 1.7.4a1.6 1.6 0 1 1-2.3 0c-.4-.4-.6-1.2-.3-1.8l-2.2-2.2v5.6c.2.1.3.2.4.3a1.6 1.6 0 1 1-1.8-.3V8.7a1.6 1.6 0 0 1-.9-2.1L8.6 4.2 1.5 11.3a1.6 1.6 0 0 0 0 2.3l9.4 9.4c.6.6 1.7.6 2.3 0l9.3-9.3c.7-.7.7-1.7 0-2.3z" />
   ),
+  // Database cylinder for SQL.
+  sql: (
+    <>
+      <path d="M4 6c0 1.66 3.58 3 8 3s8-1.34 8-3-3.58-3-8-3-8 1.34-8 3z" />
+      <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6c0 1.66-3.58 3-8 3S4 7.66 4 6z" fillOpacity=".55" />
+      <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6c0 1.66-3.58 3-8 3s-8-1.34-8-3z" fillOpacity=".3" />
+    </>
+  ),
+  // R language: oval mark with a cut-out R.
+  r: (
+    <>
+      <ellipse cx="12" cy="12" rx="10" ry="7" fillOpacity=".16" />
+      <path d="M8 7h4.6c2 0 3.3 1.05 3.3 2.75 0 1.2-.72 2.05-1.85 2.45L16.7 17h-2.5l-2.2-4.35H10V17H8V7zm2 1.75v2.4h2.35c.95 0 1.5-.5 1.5-1.2 0-.75-.55-1.2-1.5-1.2H10z" />
+    </>
+  ),
+  // pandas: stacked vertical bars (split middle) echoing the logo.
+  pandas: (
+    <>
+      <rect x="4.5" y="3" width="2.6" height="18" rx="1.1" />
+      <rect x="10.7" y="3" width="2.6" height="6.5" rx="1.1" />
+      <rect x="10.7" y="11.5" width="2.6" height="9.5" rx="1.1" />
+      <rect x="16.9" y="3" width="2.6" height="18" rx="1.1" />
+    </>
+  ),
+  // NumPy: 3D cube for n-dimensional arrays.
+  numpy: (
+    <>
+      <path d="M12 2 3 7l9 5 9-5-9-5z" />
+      <path d="M3 7v10l9 5V12L3 7z" fillOpacity=".55" />
+      <path d="M21 7v10l-9 5V12l9-5z" fillOpacity=".3" />
+    </>
+  ),
+  // scikit-learn: connected-nodes graph (classification).
+  scikit: (
+    <>
+      <path
+        d="M6 7l11-1M6 7l2 10M18 6l-1 10M8 17l9-1"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      <circle cx="6" cy="7" r="2.2" />
+      <circle cx="18" cy="6" r="2.2" />
+      <circle cx="8" cy="17" r="2.2" />
+      <circle cx="17" cy="16" r="2.2" />
+    </>
+  ),
+  // RAG / LLM: AI sparkle.
+  rag: (
+    <>
+      <path d="M11 3l1.4 4c.25.7.8 1.25 1.5 1.5L18 10l-4.1 1.5c-.7.25-1.25.8-1.5 1.5L11 17l-1.4-4c-.25-.7-.8-1.25-1.5-1.5L4 10l4.1-1.5c.7-.25 1.25-.8 1.5-1.5L11 3z" />
+      <path d="M18 14l.6 1.7c.1.3.35.55.65.65L21 17l-1.75.65c-.3.1-.55.35-.65.65L18 20l-.6-1.7c-.1-.3-.35-.55-.65-.65L15 17l1.75-.65c.3-.1.55-.35.65-.65L18 14z" fillOpacity=".8" />
+    </>
+  ),
+  // Databricks: stacked angled bricks.
+  databricks: (
+    <>
+      <path d="M12 2 4 6.5v2L12 4l8 4.5v-2L12 2z" />
+      <path d="M12 7 4 11.5v2L12 9l8 4.5v-2L12 7z" fillOpacity=".7" />
+      <path d="M12 12 4 16.5v2L12 14l8 4.5v-2L12 12z" fillOpacity=".45" />
+    </>
+  ),
+  // Tableau: cross of rectangular bars.
+  tableau: (
+    <>
+      <rect x="11" y="2.5" width="2" height="19" rx="1" />
+      <rect x="4" y="11" width="16" height="2" rx="1" />
+      <rect x="6.6" y="7" width="1.5" height="10" rx=".75" fillOpacity=".7" />
+      <rect x="15.9" y="7" width="1.5" height="10" rx=".75" fillOpacity=".7" />
+      <rect x="7" y="6.6" width="10" height="1.5" rx=".75" fillOpacity=".7" />
+      <rect x="7" y="15.9" width="10" height="1.5" rx=".75" fillOpacity=".7" />
+    </>
+  ),
+  // Streamlit: folded fan / ribbon mark.
+  streamlit: (
+    <path d="M12 5c-.5 0-1 .27-1.3.72L2.4 16.1c-.4.5-.5 1.1-.2 1.6.3.5.9.8 1.5.65l8.3-2.5 8.3 2.5c.6.15 1.2-.15 1.5-.65.3-.5.2-1.1-.2-1.6L13.3 5.72C13 5.27 12.5 5 12 5z" />
+  ),
 };
 
 export default function TechIcon({ name, label, size = 28 }) {

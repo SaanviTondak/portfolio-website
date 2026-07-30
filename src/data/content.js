@@ -1,8 +1,6 @@
 /* =========================================================================
    SITE CONTENT
    Single source of truth for all editable copy, links and lists.
-   Placeholders are wrapped in [SQUARE BRACKETS] — search for "[" to find
-   everything that still needs your real details / assets.
    ========================================================================= */
 
 // ---- Personal / identity ---------------------------------------------------
@@ -11,29 +9,27 @@ export const profile = {
   firstName: 'Saanvi',
   lastName: 'Tondak',
   monogram: 'ST',
-  roles: ['Data Scientist', 'AI Engineer'],
-  email: 'saanvitondak2004@gmail.com',
+  roles: ['Data Scientist', 'Founder'],
+  email: 'e1157202@u.nus.edu',
   location: 'Singapore',
   // Drop your resume PDF at /public/resume.pdf (see README).
   resumeUrl: '/resume.pdf',
 };
 
 // ---- Social links ----------------------------------------------------------
-// TODO: replace the "#" hrefs with your real profile URLs.
 export const socials = [
-  { label: 'GitHub', href: '#', icon: 'github' },
-  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { label: 'X / Twitter', href: '#', icon: 'twitter' },
-  { label: 'Instagram', href: '#', icon: 'instagram' },
+  { label: 'GitHub', href: 'https://github.com/SaanviTondak', icon: 'github' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/saanvi-tondak-a0407a321',
+    icon: 'linkedin',
+  },
 ];
 
-// Footer social list (includes Facebook per the footer spec).
+// Footer social list.
 export const footerSocials = [
-  { label: 'Github', href: '#' },
-  { label: 'Linkedin', href: '#' },
-  { label: 'Twitter', href: '#' },
-  { label: 'Facebook', href: '#' },
-  { label: 'Instagram', href: '#' },
+  { label: 'Github', href: 'https://github.com/SaanviTondak' },
+  { label: 'Linkedin', href: 'https://www.linkedin.com/in/saanvi-tondak-a0407a321' },
 ];
 
 // ---- Navigation ------------------------------------------------------------
@@ -44,110 +40,112 @@ export const navLinks = [
 ];
 
 // ---- About / experience timeline ------------------------------------------
-// Placeholder entries — edit role, sub-label and description freely.
 export const timeline = [
   {
-    year: 'NOW',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
+    year: '2026',
+    role: 'Data Scientist Intern',
+    sub: 'GovTech Singapore',
     description:
-      '[Describe what you are currently working on — the kind of problems you solve, the tools you reach for, and the impact you aim for.]',
+      'Built the AI brain behind government security audits, turning days of manual question drafting into seconds of traceable, agent generated insight.',
   },
   {
     year: '2025',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
+    role: 'Automation & Tech Intern',
+    sub: 'World Technologies',
     description:
-      '[Short description of this role or project and the outcomes you delivered.]',
+      'Replaced a manual marketing grind with self running agentic AI, then shipped an entire company website solo from front end to back end.',
+  },
+  {
+    year: '2025',
+    role: 'Business Analyst Intern',
+    sub: 'Ernst & Young (EY)',
+    description:
+      'Turned messy customer data into clean pipelines and the dashboards leadership actually opens, on a national scale CRM rollout.',
+  },
+  {
+    year: '2025',
+    role: 'Associate Consultant',
+    sub: 'Yale-NUS Consulting Group',
+    description:
+      'Cracked open new Southeast Asian markets for a plant based beverage brand with data driven segmentation and a sharp go to market playbook.',
   },
   {
     year: '2024',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
+    role: 'Co-Founder & Head of Technology',
+    sub: 'Project Bambubuyog',
     description:
-      '[Short description of this role or project and the outcomes you delivered.]',
+      'Co founded a social venture connecting rural farmers to market through a honey and beehive marketplace, now scaling across the region.',
   },
   {
     year: '2023',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
+    role: 'B.Sc. Business Analytics (Computing), Hons.',
+    sub: 'National University of Singapore',
     description:
-      '[Short description of this role or project and the outcomes you delivered.]',
-  },
-  {
-    year: '2022',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
-    description:
-      '[Short description of this role or project and the outcomes you delivered.]',
-  },
-  {
-    year: '2021',
-    role: '[ROLE]',
-    sub: '[Freelance & Projects]',
-    description:
-      '[Short description of this role or project and the outcomes you delivered.]',
+      'Honours track Business Analytics at NUS College, specializing in machine learning with a second major in quantitative finance.',
   },
 ];
 
 // ---- Work / projects -------------------------------------------------------
-// Drop preview images at /public/projects/ and update the `image` paths.
 export const projects = [
   {
     index: '01',
-    name: '[PROJECT NAME]',
+    name: 'AI Audit RAG System',
     category: 'AI / LLM',
-    tech: ['Python', 'LangChain', 'FastAPI', 'React'],
-    image: '/projects/project-1.jpg',
+    tech: ['Python', 'RAG', 'Multi-Agent', 'Databricks'],
     href: '#',
+    note: 'Internal government tool',
   },
   {
     index: '02',
-    name: '[PROJECT NAME]',
-    category: 'Data Science',
-    tech: ['Python', 'Pandas', 'scikit-learn', 'Plotly'],
-    image: '/projects/project-2.jpg',
-    href: '#',
+    name: 'AI Lead-Gen Agent',
+    category: 'Agentic AI',
+    tech: ['Python', 'MCP', 'Agentic AI', 'Automation'],
+    href: 'https://github.com/SaanviTondak/MCP-leads-agent',
   },
   {
     index: '03',
-    name: '[PROJECT NAME]',
-    category: 'Machine Learning',
-    tech: ['PyTorch', 'NumPy', 'Docker', 'AWS'],
-    image: '/projects/project-3.jpg',
-    href: '#',
+    name: 'Project Bambubuyog',
+    category: 'Social Venture',
+    tech: ['Marketplace', 'Data Tracking', 'Logistics'],
+    href: 'https://www.projectbamboobuyog.com/',
   },
   {
     index: '04',
-    name: '[PROJECT NAME]',
-    category: 'Full-Stack AI',
-    tech: ['Next.js', 'Node.js', 'OpenAI', 'Postgres'],
-    image: '/projects/project-4.jpg',
-    href: '#',
+    name: 'Innovation Asia Lab',
+    category: 'Full-Stack Web',
+    tech: ['HTML/CSS', 'JavaScript', 'Full-Stack'],
+    href: 'https://innovationasialab.com/',
   },
   {
     index: '05',
-    name: '[PROJECT NAME]',
-    category: 'Data Engineering',
-    tech: ['Airflow', 'Spark', 'BigQuery', 'dbt'],
-    image: '/projects/project-5.jpg',
-    href: '#',
+    name: 'GIC Transactions Dashboard',
+    category: 'Data Science',
+    tech: ['Python', 'Streamlit', 'Plotly', 'scikit-learn'],
+    href: 'https://github.com/SaanviTondak/gic-dashboard',
+  },
+  {
+    index: '06',
+    name: 'Internship Review Platform',
+    category: 'Full-Stack AI',
+    tech: ['Vue.js', 'JavaScript', 'NLP', 'Sentiment'],
+    href: 'https://github.com/SaanviTondak/LaunchPad---Internship-Recruitment-Platform-',
   },
 ];
 
 // ---- Tech stack ------------------------------------------------------------
-// `icon` maps to a key in components/icons/TechIcon.jsx. Edit freely.
+// `icon` maps to a key in components/icons/TechIcon.jsx; anything without a
+// bespoke glyph falls back to a clean lettered badge.
 export const techStack = [
   { label: 'Python', icon: 'python' },
+  { label: 'SQL', icon: 'sql' },
+  { label: 'R', icon: 'r' },
   { label: 'JavaScript', icon: 'javascript' },
-  { label: 'TypeScript', icon: 'typescript' },
-  { label: 'React', icon: 'react' },
-  { label: 'Next.js', icon: 'nextjs' },
-  { label: 'Node.js', icon: 'nodejs' },
-  { label: 'PyTorch', icon: 'pytorch' },
-  { label: 'TensorFlow', icon: 'tensorflow' },
-  { label: 'Docker', icon: 'docker' },
-  { label: 'AWS', icon: 'aws' },
-  { label: 'PostgreSQL', icon: 'postgresql' },
+  { label: 'Pandas', icon: 'pandas' },
+  { label: 'NumPy', icon: 'numpy' },
+  { label: 'scikit-learn', icon: 'scikit' },
+  { label: 'RAG / LLM', icon: 'rag' },
+  { label: 'Databricks', icon: 'databricks' },
+  { label: 'Tableau', icon: 'tableau' },
+  { label: 'Streamlit', icon: 'streamlit' },
   { label: 'Git', icon: 'git' },
 ];

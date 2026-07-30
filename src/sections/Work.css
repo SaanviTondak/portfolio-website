@@ -14,7 +14,8 @@
   justify-content: center;
 }
 .work--pinned .work__head {
-  padding-top: clamp(4rem, 10vh, 8rem);
+  padding-top: clamp(2rem, 6vh, 4.5rem);
+  margin-bottom: clamp(1.5rem, 3.5vh, 2.75rem);
 }
 
 /* ---- Track ---- */
@@ -39,58 +40,35 @@
 /* ---- Card ---- */
 .work-card {
   flex: 0 0 auto;
-  width: clamp(300px, 42vw, 560px);
+  width: clamp(300px, 34vw, 460px);
+  min-height: clamp(320px, 46vh, 440px);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 22px;
-  overflow: hidden;
   transition: border-color var(--dur) var(--ease-out),
     transform var(--dur) var(--ease-out);
 }
 .work-card:hover {
   border-color: var(--border-strong);
+  transform: translateY(-4px);
 }
 
-.work-card__media {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, #17111a, #0e0a10);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.work-card__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .work-card__index {
-  position: absolute;
-  top: 1rem;
-  left: 1.2rem;
-  z-index: 2;
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
-  color: var(--text);
-  mix-blend-mode: difference;
-}
-.work-card__placeholder {
-  display: none;
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 1rem;
-  line-height: 1.7;
-}
-/* Shown only when the image fails to load (see onError in Work.jsx). */
-.work-card__media.is-empty .work-card__placeholder {
-  display: block;
+  line-height: 1;
+  color: var(--text-faint);
+  letter-spacing: 0.02em;
+  margin-bottom: clamp(1.5rem, 4vh, 2.75rem);
 }
 
 .work-card__body {
-  padding: clamp(1.25rem, 2.5vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .work-card__row {
   display: flex;
@@ -134,8 +112,9 @@
   color: var(--text);
 }
 .work-card__link {
-  display: inline-block;
-  margin-top: 1.5rem;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.5rem;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -144,6 +123,15 @@
 }
 .work-card__link:hover {
   color: var(--accent);
+}
+.work-card__note {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
 }
 
 /* ---- Closing card ---- */

@@ -67,24 +67,9 @@ export default function Work({ reducedMotion = false }) {
       <div className="work__track" ref={trackRef}>
         {projects.map((p) => (
           <article className="work-card" key={p.index}>
-            <div className="work-card__media">
-              {/* Preview image placeholder — drop real image at p.image */}
-              <img
-                src={p.image}
-                alt={`${p.name} preview`}
-                loading="lazy"
-                onError={(e) => {
-                  // Graceful placeholder if the image file isn't added yet.
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement.classList.add('is-empty');
-                }}
-              />
-              <span className="work-card__index">{p.index}</span>
-              <span className="work-card__placeholder" aria-hidden="true">
-                Add image →<br />
-                {p.image}
-              </span>
-            </div>
+            <span className="work-card__index" aria-hidden="true">
+              {p.index}
+            </span>
 
             <div className="work-card__body">
               <div className="work-card__row">
@@ -97,9 +82,18 @@ export default function Work({ reducedMotion = false }) {
                   <li key={t}>{t}</li>
                 ))}
               </ul>
-              <a className="work-card__link" href={p.href}>
-                View project →
-              </a>
+              {p.note ? (
+                <span className="work-card__note">{p.note}</span>
+              ) : p.href && p.href !== '#' ? (
+                <a
+                  className="work-card__link"
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View project →
+                </a>
+              ) : null}
             </div>
           </article>
         ))}
@@ -107,7 +101,12 @@ export default function Work({ reducedMotion = false }) {
         {/* Closing "see more" card */}
         <article className="work-card work-card--more">
           <h3>Want to see more?</h3>
-          <a className="work-card__see-all" href="#">
+          <a
+            className="work-card__see-all"
+            href="https://github.com/SaanviTondak"
+            target="_blank"
+            rel="noreferrer"
+          >
             See All Works →
           </a>
         </article>
