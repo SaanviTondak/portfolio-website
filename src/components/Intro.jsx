@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from '../lib/gsap';
+import { gsap, ScrollTrigger } from '../lib/gsap';
 import { profile } from '../data/content';
 import './Intro.css';
 
@@ -23,6 +23,9 @@ export default function Intro({ onComplete }) {
       defaults: { ease: 'power3.out' },
       onComplete: () => {
         document.documentElement.classList.remove('is-loading');
+        // Scrolling is now unlocked and the real page height is settled —
+        // recompute every scroll trigger so reveals fire at the right spots.
+        ScrollTrigger.refresh();
         onComplete?.();
       },
     });

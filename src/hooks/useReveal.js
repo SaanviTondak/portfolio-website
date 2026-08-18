@@ -27,34 +27,45 @@ export function useReveal(enabled = true, opts = {}) {
 
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray('.reveal', scope);
-      items.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y },
-          {
+      // Resting (pre-reveal) state.
+      gsap.set(items, { opacity: 0, y });
+
+      // `batch` groups whatever is on screen together and — crucially — also
+      // fires `onEnter` for elements already in view when triggers (re)compute.
+      // This is far more resilient than one trigger per element to layout that
+      // settles late or differs by platform (Windows scrollbars / font metrics).
+      ScrollTrigger.batch(items, {
+        start: 'top 88%',
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, {
             opacity: 1,
             y: 0,
             duration: 0.9,
             ease: 'power3.out',
             stagger,
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
+            overwrite: true,
+          }),
       });
     }, scope);
 
-    return () => ctx.revert();
-  }, [enabled, y, stagger]);
+    // Recompute trigger positions once the page has actually settled. The
+    // intro overlay locks scrolling on load, and fonts/images reflow the page
+    // afterwards, so positions measured too early are wrong — most visibly on
+    // Windows. Refresh after each of those milestones so nothing stays hidden.
+    const refresh = () => ScrollTrigger.refresh();
+    const raf = requestAnimationFrame(refresh);
+    const timer = setTimeout(refresh, 600);
+    window.addEventListener('load', refresh);
+    if (document.fonts?.ready) document.fonts.ready.then(refresh).catch(() => {});
 
-  // Refresh triggers once fonts/images have settled.
-  useEffect(() => {
-    const t = setTimeout(() => ScrollTrigger.refresh(), 300);
-    return () => clearTimeout(t);
-  }, []);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      window.removeEventListener('load', refresh);
+      ctx.revert();
+    };
+  }, [enabled, y, stagger]);
 
   return scopeRef;
 }

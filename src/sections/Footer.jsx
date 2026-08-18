@@ -15,19 +15,6 @@ export default function Footer({ reducedMotion = false }) {
   return (
     <footer className="footer section" id="contact" ref={scopeRef}>
       <div className="container">
-        {/* ---- CTA ---- */}
-        <div className="footer__cta">
-          <p className="eyebrow reveal">Let&apos;s build something</p>
-          <h2 className="footer__cta-title display-heading reveal">
-            Have an idea? <span className="accent">Let&apos;s talk.</span>
-          </h2>
-          <div className="footer__buttons reveal">
-            <a className="btn btn--filled" href={`mailto:${profile.email}`}>
-              Hire Me →
-            </a>
-          </div>
-        </div>
-
         {/* ---- Large name ---- */}
         <h2 className="footer__name reveal" aria-hidden="true">
           {profile.name}

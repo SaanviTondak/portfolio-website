@@ -10,7 +10,7 @@ export const profile = {
   lastName: 'Tondak',
   monogram: 'ST',
   roles: ['Data Scientist', 'Founder'],
-  email: 'e1157202@u.nus.edu',
+  email: 'saanvitondak@u.nus.edu',
   location: 'Singapore',
   // Drop your resume PDF at /public/resume.pdf (see README).
   resumeUrl: '/resume.pdf',
@@ -46,42 +46,42 @@ export const timeline = [
     role: 'Data Scientist Intern',
     sub: 'GovTech Singapore',
     description:
-      'Built the AI brain behind government security audits, turning days of manual question drafting into seconds of traceable, agent generated insight.',
+      'Built a multi-agent RAG application that drafts and grounds security-audit questions against source documentation, with citations for traceability.',
   },
   {
     year: '2025',
     role: 'Automation & Tech Intern',
     sub: 'World Technologies',
     description:
-      'Replaced a manual marketing grind with self running agentic AI, then shipped an entire company website solo from front end to back end.',
+      'Designed an agentic lead-generation pipeline (Python, MCP) to automate marketing outreach, and built the company website end to end.',
   },
   {
     year: '2025',
     role: 'Business Analyst Intern',
     sub: 'Ernst & Young (EY)',
     description:
-      'Turned messy customer data into clean pipelines and the dashboards leadership actually opens, on a national scale CRM rollout.',
+      'Cleaned and modelled customer data into reliable ETL pipelines and built the reporting dashboards for a national-scale CRM rollout.',
   },
   {
     year: '2025',
     role: 'Associate Consultant',
     sub: 'Yale-NUS Consulting Group',
     description:
-      'Cracked open new Southeast Asian markets for a plant based beverage brand with data driven segmentation and a sharp go to market playbook.',
+      'Ran customer segmentation and market-sizing analysis to inform a Southeast Asia entry strategy for a plant-based beverage brand.',
   },
   {
     year: '2024',
     role: 'Co-Founder & Head of Technology',
     sub: 'Project Bambubuyog',
     description:
-      'Co founded a social venture connecting rural farmers to market through a honey and beehive marketplace, now scaling across the region.',
+      'Co-created a social venture connecting rural farmers to buyers through a honey and beehive marketplace, now scaling across the region.',
   },
   {
     year: '2023',
     role: 'B.Sc. Business Analytics (Computing), Hons.',
     sub: 'National University of Singapore',
     description:
-      'Honours track Business Analytics at NUS College, specializing in machine learning with a second major in quantitative finance.',
+      'Honours-track Business Analytics at NUS College, specialising in machine learning, with a second major in quantitative finance.',
   },
 ];
 

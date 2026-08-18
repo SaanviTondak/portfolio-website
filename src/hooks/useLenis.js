@@ -34,7 +34,14 @@ export function useLenis(enabled = true) {
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
+    // Once Lenis has taken over scrolling and all assets have loaded, recompute
+    // trigger positions. Without this, triggers created against the pre-Lenis
+    // layout can sit at the wrong scroll offsets (notably on Windows).
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener('load', refresh);
+
     return () => {
+      window.removeEventListener('load', refresh);
       gsap.ticker.remove(raf);
       lenis.destroy();
       delete window.__lenis;
