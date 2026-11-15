@@ -19,9 +19,9 @@ const FOREARM_DIR = [0.1, -1, 0.2];
 
 /* Waving (right arm): upper arm out to the side, forearm upright and swinging
    between two angles, palm towards the viewer. Same axes as above. */
-const WAVE_UPPER_DIR = [0.9, 0.05, 0.28];
-const WAVE_FORE_A = [-0.3, 1, 0.22];
-const WAVE_FORE_B = [0.32, 1, 0.22];
+const WAVE_UPPER_DIR = [0.84, 0.24, 0.3];
+const WAVE_FORE_A = [-0.42, 1, 0.22];
+const WAVE_FORE_B = [0.18, 1, 0.22];
 
 const { lerp, clamp, damp } = THREE.MathUtils;
 

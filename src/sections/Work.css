@@ -39,12 +39,15 @@
 
 /* ---- Card ---- */
 .work-card {
+  --pad: clamp(1.75rem, 3vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
   flex: 0 0 auto;
   width: clamp(300px, 34vw, 460px);
   min-height: clamp(320px, 46vh, 440px);
   display: flex;
   flex-direction: column;
-  padding: clamp(1.75rem, 3vw, 2.5rem);
+  padding: var(--pad);
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -56,13 +59,46 @@
   transform: translateY(-4px);
 }
 
+/* Illustrated header band: the top fifth of the card */
+.work-card__media {
+  position: relative;
+  margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) clamp(1.25rem, 3vh, 1.75rem);
+  height: clamp(96px, 14vh, 124px);
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--pad) 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(120% 140% at 85% 0%, rgba(255, 95, 176, 0.2), transparent 60%),
+    radial-gradient(circle at 1px 1px, rgba(234, 229, 236, 0.09) 1px, transparent 1.4px) 0 0 / 14px 14px,
+    linear-gradient(180deg, rgba(255, 143, 206, 0.06), rgba(255, 143, 206, 0.01));
+  overflow: hidden;
+}
+.project-art {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  height: 92%;
+  width: auto;
+  max-width: 68%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  opacity: 0.9;
+  transition: transform var(--dur) var(--ease-out), opacity var(--dur) var(--ease-out);
+}
+.work-card:hover .project-art {
+  transform: translateY(-50%) scale(1.04);
+  opacity: 1;
+}
+
 .work-card__index {
+  position: relative;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   line-height: 1;
-  color: var(--text-faint);
+  color: var(--text);
+  opacity: 0.85;
   letter-spacing: 0.02em;
-  margin-bottom: clamp(1.5rem, 4vh, 2.75rem);
 }
 
 .work-card__body {
@@ -90,6 +126,12 @@
   border: 1px solid var(--accent);
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
+}
+.work-card__summary {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 .work-card__label {
   margin-top: 1.25rem;

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Cinematic single-page portfolio for Saanvi Tondak — Data Scientist / AI Engineer.",
+  "description": "Cinematic single-page portfolio for Saanvi Tondak — interested in applied AI, machine learning and data science.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

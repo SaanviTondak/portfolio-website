@@ -71,7 +71,7 @@ export default function Hero({ introDone, reducedMotion = false }) {
       </div>
 
       <div className="hero__side hero__side--info">
-        <p className="hero__kicker hero__reveal">A</p>
+        <p className="hero__kicker hero__reveal">Interested in</p>
         <div className="hero__roles hero__reveal">
           <span className="sr-only">{roles.join(' and ')}</span>
           <div className="hero__role-flip" aria-hidden="true">
