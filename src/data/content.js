@@ -39,7 +39,33 @@ export const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-// ---- About / experience timeline ------------------------------------------
+// ---- About me --------------------------------------------------------------
+export const about = {
+  paragraphs: [
+    'I\'m a Business Analytics student at NUS College who likes turning messy data into things people actually use — from multi-agent RAG tools for security audits at GovTech Singapore to agentic lead-generation pipelines and national-scale CRM dashboards.',
+    'Outside of work I co-founded Project Bambubuyog, a social venture connecting rural farmers to buyers through a honey and beehive marketplace.',
+  ],
+};
+
+// ---- What I do -------------------------------------------------------------
+export const whatIDo = [
+  {
+    title: 'Data Science & AI',
+    subtitle: 'Models, pipelines and LLM systems',
+    description:
+      'Customer segmentation, ETL pipelines and dashboards, through to multi-agent RAG applications that ground every answer in cited source documents.',
+    tools: ['Python', 'SQL', 'R', 'Pandas', 'scikit-learn', 'RAG / LLM', 'Databricks', 'Tableau'],
+  },
+  {
+    title: 'Build & Ventures',
+    subtitle: 'Products taken from idea to launch',
+    description:
+      'Full-stack websites, agentic automations and a marketplace venture — designed, built and shipped end to end.',
+    tools: ['JavaScript', 'Vue.js', 'Streamlit', 'MCP', 'Automation', 'Git'],
+  },
+];
+
+// ---- Career / experience timeline ------------------------------------------
 export const timeline = [
   {
     year: '2026',

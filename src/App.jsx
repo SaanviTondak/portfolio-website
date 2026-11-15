@@ -8,9 +8,12 @@ import SocialSidebar from './components/SocialSidebar';
 import ResumeCorner from './components/ResumeCorner';
 import GlowBlobs from './components/GlowBlobs';
 import CursorSparks from './components/CursorSparks';
+import Character from './character/Character';
 
 import Hero from './sections/Hero';
 import About from './sections/About';
+import WhatIDo from './sections/WhatIDo';
+import Career from './sections/Career';
 import Work from './sections/Work';
 import TechStack from './sections/TechStack';
 import Footer from './sections/Footer';
@@ -44,10 +47,16 @@ export default function App() {
       <main>
         <Hero introDone={introDone} reducedMotion={reducedMotion} />
         <About reducedMotion={reducedMotion} />
+        <WhatIDo reducedMotion={reducedMotion} />
+        <Career reducedMotion={reducedMotion} />
         <Work reducedMotion={reducedMotion} />
         <TechStack reducedMotion={reducedMotion} />
         <Footer reducedMotion={reducedMotion} />
       </main>
+
+      {/* 3D character: fixed stage that reacts to scroll + pointer. Rendered
+          after <main> so the sections it animates against already exist. */}
+      <Character reducedMotion={reducedMotion} />
     </>
   );
 }
