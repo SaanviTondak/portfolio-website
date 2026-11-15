@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap, ScrollTrigger } from '../lib/gsap';
 import { projects } from '../data/content';
+import ProjectArt from '../components/ProjectArt';
 import './Work.css';
 
 /**
@@ -67,15 +68,17 @@ export default function Work({ reducedMotion = false }) {
       <div className="work__track" ref={trackRef}>
         {projects.map((p) => (
           <article className="work-card" key={p.index}>
-            <span className="work-card__index" aria-hidden="true">
-              {p.index}
-            </span>
+            <div className="work-card__media" aria-hidden="true">
+              <ProjectArt kind={p.art} />
+              <span className="work-card__index">{p.index}</span>
+            </div>
 
             <div className="work-card__body">
               <div className="work-card__row">
                 <h3 className="work-card__name">{p.name}</h3>
                 <span className="work-card__tag">{p.category}</span>
               </div>
+              {p.summary && <p className="work-card__summary">{p.summary}</p>}
               <p className="work-card__label">Tools and features</p>
               <ul className="work-card__tech">
                 {p.tech.map((t) => (

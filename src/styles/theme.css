@@ -52,6 +52,7 @@
 
   /* ---- Z-index scale --------------------------------------------------- */
   --z-canvas: 1;
+  --z-character: 5; /* 3D character: above the glow, below section copy */
   --z-content: 10;
   --z-overlay: 100;
   --z-nav: 200;

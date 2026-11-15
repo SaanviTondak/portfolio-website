@@ -1,0 +1,121 @@
+.what {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+.what__cards {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.what-card {
+  position: relative;
+  padding: clamp(1.4rem, 2.4vw, 2.2rem);
+  border: 1px dashed var(--border-strong);
+  background: rgba(11, 8, 12, 0.35);
+  outline: none;
+  transition: background var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.what-card + .what-card {
+  border-top: none;
+}
+.what-card:hover,
+.what-card:focus-visible,
+.what-card:focus-within {
+  background: var(--card-bg-hover);
+  border-color: rgba(255, 143, 206, 0.4);
+}
+
+/* Solid pink corner brackets */
+.what-card__corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  opacity: 0.55;
+  transition: opacity var(--dur) var(--ease-out);
+}
+.what-card__corner--tl {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+.what-card__corner--br {
+  right: -1px;
+  bottom: -1px;
+  border-left: none;
+  border-top: none;
+}
+.what-card:hover .what-card__corner,
+.what-card:focus-within .what-card__corner,
+.what-card:focus-visible .what-card__corner {
+  opacity: 1;
+}
+
+.what-card__title {
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.what-card__sub {
+  margin-top: 0.4rem;
+  color: var(--accent);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Collapsible detail: animates height via the grid 0fr → 1fr trick. */
+.what-card__more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.6s var(--ease-out), opacity 0.45s var(--ease-out);
+}
+.what-card__more > div {
+  overflow: hidden;
+}
+.what-card:hover .what-card__more,
+.what-card:focus-visible .what-card__more,
+.what-card:focus-within .what-card__more {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.what-card__desc {
+  margin-top: 1.1rem;
+  font-size: 1rem;
+  max-width: 52ch;
+}
+.what-card__label {
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.what-card__tags {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.what-card__tags li {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--card-bg);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Touch screens have no hover — keep the detail open. */
+@media (hover: none) {
+  .what-card__more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}

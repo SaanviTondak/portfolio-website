@@ -108,6 +108,15 @@ ul {
   padding-inline: var(--gutter);
 }
 
+/* Copy that shares the screen with the 3D character: on desktop it keeps to
+   the right half, leaving the left for her. */
+@media (min-width: 1025px) {
+  .split-right {
+    margin-left: 50%;
+    max-width: 640px;
+  }
+}
+
 /* Uppercase eyebrow / small pink label */
 .eyebrow {
   display: inline-block;
